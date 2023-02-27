@@ -20,8 +20,6 @@ const server = z.object({
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
-  GOOGLE_CLIENT_ID:465290145649-562bet0q7531mt98m46vp83vb0fsv9f0.apps.googleusercontent.com
-  GOOGLE_CLIENT_SECRET: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
 });
 
 /**
