@@ -4,6 +4,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
 import "../styles/globals.css";
+import Navbar from "../components/Navbar";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +13,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <div className="p-4">
-        <img className="w-32" src="./devchallenges.svg" alt="" />
+        <Navbar/>
         <Component {...pageProps} />
       </div>
     </SessionProvider>
