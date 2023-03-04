@@ -35,7 +35,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex justify-between' >
+    <div className='flex justify-between mb-12  md:mb-24' >
         <img className="w-32 cursor-pointer" src="./devchallenges.svg" alt="" onClick={() => {window.location.href = '/'}}/>
         {session ?  (
         <div className='flex justify-center items-center gap-1 md:gap-3' >
@@ -48,7 +48,9 @@ const Navbar = () => {
                     <div 
                     ref={dropdownRef}
                     className='absolute top-10 right-4 bg-white rounded-3xl flex flex-col  justify-start p-4 overflow-scroll scroll- gap-4  ' >
-                        <Link className='font-medium  px-4 py-2 hover:bg-[#E3E1DC] p-2 cursor-pointer rounded-xl'  href={''} >Account</Link>
+                        <Link className='font-medium  px-4 py-2 hover:bg-[#E3E1DC] p-2 cursor-pointer rounded-xl'  href={'/account'}
+                         onClick={() => {setOpen(false)}}
+                        >Account</Link>
                         {/* <Link className='font-medium text-lg px-4 py-2 hover:bg-[#E3E1DC] p-2 cursor-pointer rounded-xl'  href={''} >Group Chat</Link> */}
                         <div className="flex justify-center items-center gap-3 text-red-500">
                             <RiLogoutBoxRLine/>
@@ -60,7 +62,6 @@ const Navbar = () => {
                         </div>
                     </div>
                 )}
-
         </div>
             ):(
         <div>

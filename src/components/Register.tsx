@@ -9,25 +9,26 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 const Register = () => {
   const { data: session } = useSession()
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col md:border border-black justify-center 
+    md:p-14 md:items-center rounded-3xl'>
       
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 md:w-[18rem] justify-center md:items-center">
         <h1 className="font-semibold text-lg">Join thousands of learners from around the world</h1>
         <p>Master web development by making real-life projects. There are multiple paths for you to choose</p>
       </div>
       
-      <form className='flex flex-col gap-4 mt-6'>
-          <div className="flex flex-row gap-2 items-center w-full  h-12 border border-[#BDBDBD] rounded-xl pl-2">
+      <form className='flex flex-col justify-center items-center gap-4 mt-6'>
+          <div className="flex flex-row gap-2 items-center w-full md:w-[18rem]  h-12 border border-[#BDBDBD] rounded-xl pl-2">
             <MdEmail className='text-[#828282] w-5'/>
             <input type="text" placeholder="Email" />
           </div>
-          <div className="flex flex-row gap-2 items-center w-full  h-12 border border-[#BDBDBD] rounded-xl pl-2">
+          <div className="flex flex-row gap-2 items-center w-full md:w-[18rem]  h-12 border border-[#BDBDBD] rounded-xl pl-2">
             <AiFillLock className='text-[#828282] w-5'/>
             <input type="text" placeholder="Password" />
           </div>
           <button onClick={() => {
             signIn();
-          }} className='bg-[#2F80ED] w-full  h-9 text-white text rounded-lg'>Start coding now</button>
+          }} className='bg-[#2F80ED] w-full md:w-[18rem] h-9 text-white text rounded-lg'>Start coding now</button>
       </form>
 
       <div className="flex flex-col justify-center items-center mt-5 gap-4">
@@ -50,6 +51,9 @@ const Register = () => {
                 onClick={() => {
                   signIn(
                     "github",
+                    {
+                      callbackUrl: 'http://localhost:3000/account',
+                    }
                   );
                 }} />
               </div>

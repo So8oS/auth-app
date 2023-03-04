@@ -5,7 +5,7 @@ import Register from "../components/Register";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col p-4 ">
+    <div className="flex flex-col justify-center items-center ">
       <Register/>
     </div>
   );

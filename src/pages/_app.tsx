@@ -12,7 +12,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <div className="p-4">
+      <div className="p-4 ">
         <Navbar/>
         <Component {...pageProps} />
       </div>
