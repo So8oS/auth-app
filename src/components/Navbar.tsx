@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useState } from 'react'
 import { signOut, useSession } from 'next-auth/react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import Link from 'next/link';
@@ -13,7 +13,7 @@ import { RiLogoutBoxRLine } from 'react-icons/ri'
 const Navbar = () => {
     const { data: session } = useSession();
     const [open, setOpen] =useState(false)
-    const dropdownRef = useRef<HTMLDivElement>(null);
+    // const dropdownRef = useRef<HTMLDivElement>(null);
     
     // useEffect(() => {
     //     // const handler = (event: { target: any }) => {
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between mb-12  md:mb-24' >
-        <img className="w-32 cursor-pointer" src="./devchallenges.svg" alt="" onClick={() => {window.location.href = '/'}}/>
+        <img className="w-32 cursor-pointer" src="./devchallenges.svg" alt="" onClick={() => {!session ? window.location.href = '/' : null}}/>
         {session ?  (
         <div className='flex justify-center items-center gap-1 md:gap-3' >
             <img className="w-7 rounded-sm" src={session.user?.image} alt="Logo" />
@@ -46,7 +46,7 @@ const Navbar = () => {
                 }}/>
             {open && (
                     <div 
-                    ref={dropdownRef}
+                    // ref={dropdownRef}
                     className='absolute top-10 right-4 bg-white rounded-3xl flex flex-col  justify-start p-4 overflow-scroll scroll- gap-4  ' >
                         <Link className='font-medium  px-4 py-2 hover:bg-[#E3E1DC] p-2 cursor-pointer rounded-xl'  href={'/account'}
                          onClick={() => {setOpen(false)}}

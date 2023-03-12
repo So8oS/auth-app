@@ -4,14 +4,15 @@ import NextAuth from "next-auth";
 import  GoogleProvider  from "next-auth/providers/google";
 import  CredentialsProvider  from "next-auth/providers/credentials";
 import  githubporvider  from "next-auth/providers/github";
-import  FacebookProvider  from "next-auth/providers/facebook";
-import  twitterprovider  from "next-auth/providers/twitter";
+import prisma from "../../../../prisma/client";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
 
 
 export default NextAuth({
     session: {
         strategy: 'jwt',
     },
+    adapter: PrismaAdapter(prisma),
     // pages: {
     //     signIn: '/auth/signin',
     //     signOut: '/auth/signout',
